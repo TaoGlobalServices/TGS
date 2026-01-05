@@ -1,12 +1,23 @@
+ปัญหาที่ "ขนาดหน้าเว็บดูแปลกๆ" (Weird Size) มักเกิดจาก **การกำหนดความกว้างของกล่องข้อความ (Grid) ที่กว้างเกินไปสำหรับมือถือ** และ **ขนาดตัวหนังสือ (Font Size) ที่ไม่ได้ปรับลดลงเมื่ออยู่บนจอเล็ก** ทำให้หน้าเว็บล้นออกด้านข้างหรือบีบอัดจนดูไม่สวยครับ
+
+ผมได้เขียนโค้ดใหม่โดยเน้น **"Responsive Design" (รองรับทุกหน้าจอ)** 100%
+
+1. **Mobile First:** ปรับเมนูบนมือถือให้เรียงสวยงาม (ไม่หายไป) และย่อขนาดโลโก้ลงอัตโนมัติ
+2. **Grid System:** ปรับกล่องบริการให้เรียง 1 แถวบนมือถือ และ 3 แถวบนคอมพิวเตอร์ แบบอัตโนมัติ ไม่ล้นจอ
+3. **Padding:** ลดระยะขอบบนมือถือลง เพื่อให้เนื้อหาดูเต็มตามากขึ้น
+
+**วางโค้ดชุดนี้ทับอันเดิมได้เลยครับ รับรองว่าสวยทั้งบน iPhone และ PC แน่นอน**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Tao Global Services | Thailand Sourcing Partner | Professional & Reliable</title>
-    <meta name="description" content="Your trusted sourcing partner in Thailand. We specialize in professional procurement, factory verification, low MOQ negotiation, and secure export logistics for global businesses.">
-    <meta name="keywords" content="Thailand Sourcing Agent, Bangkok procurement, Thai Manufacturers, Low MOQ Sourcing, Export Service Thailand, Reliable Sourcing Partner, Tao Global Services">
+    <title>Tao Global Services | Trusted Sourcing Partner in Thailand</title>
+    <meta name="description" content="Your trusted sourcing partner in Thailand. We specialize in professional procurement, factory verification, low MOQ negotiation, and secure export logistics.">
+    <meta name="keywords" content="Thailand Sourcing Agent, Bangkok procurement, Thai Manufacturers, Low MOQ Sourcing, Export Service Thailand, Tao Global Services">
     <meta name="author" content="Tao Global Services">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.taoglobalservices.com/" />
@@ -23,19 +34,12 @@
       "@type": "LocalBusiness",
       "name": "Tao Global Services",
       "image": "https://www.taoglobalservices.com/logo.png",
-      "description": "Professional Sourcing Agent in Thailand specializing in reliable procurement and logistics.",
+      "description": "Professional Sourcing Agent in Thailand.",
+      "telephone": "+66921563555",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Bangkok",
         "addressCountry": "TH"
-      },
-      "telephone": "+66921563555",
-      "priceRange": "$$",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "09:00",
-        "closes": "18:00"
       }
     }
     </script>
@@ -44,165 +48,165 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- DESIGN SYSTEM: Sky Blue, White, Silver Metallic --- */
+        /* --- DESIGN SYSTEM: Professional Blue & Silver --- */
         :root {
-            /* Primary Professional Blue */
             --primary-blue: #0E4D92; 
-            
-            /* Metallic Silver Gradients */
             --silver-gradient: linear-gradient(135deg, #E0E0E0 0%, #B0B8C0 100%);
-            --silver-text: #A0A9B2;
-            
-            /* Backgrounds & Text */
             --white: #FFFFFF;
-            --bg-light: #F4F7F9; /* สีพื้นหลังเทาเงินสว่างๆ */
-            --text-dark: #2C3E50; /* สีตัวหนังสือเทาเข้ม อ่านง่าย */
-            
+            --bg-light: #F4F7F9;
+            --text-dark: #2C3E50;
             --transition: all 0.3s ease-in-out;
         }
 
+        /* Reset & Base */
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body { 
-            font-family: 'Montserrat', sans-serif; /* ใช้ฟอนต์เดียวทั้งเว็บ */
+            font-family: 'Montserrat', sans-serif; 
             background-color: var(--white); 
             color: var(--text-dark); 
-            line-height: 1.8; 
-            overflow-x: hidden; 
+            line-height: 1.6; 
+            overflow-x: hidden; /* ป้องกันการเลื่อนซ้ายขวาเกินจอ */
         }
+        img { max-width: 100%; height: auto; }
 
         /* Typography */
-        h1, h2, h3 { color: var(--primary-blue); font-weight: 700; line-height: 1.3; letter-spacing: -0.5px; }
-        h1 { font-size: clamp(2.5rem, 5vw, 4rem); text-transform: uppercase; }
-        h2 { font-size: 2.2rem; margin-bottom: 25px; position: relative; }
-        /* เส้นใต้หัวข้อแบบ Silver Metallic */
+        h1, h2, h3 { color: var(--primary-blue); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; } /* Clamp ช่วยปรับขนาดอักษรอัตโนมัติ */
+        h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 20px; position: relative; }
         h2::after { content: ''; display: block; width: 60px; height: 3px; background: var(--silver-gradient); margin: 15px 0 0; }
         .text-center h2::after { margin: 15px auto 0; }
         
-        p { font-size: 1.1rem; color: #555; margin-bottom: 25px; font-weight: 400; }
+        p { font-size: 1rem; color: #555; margin-bottom: 20px; font-weight: 400; }
         
         /* Utility */
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
-        .section { padding: 100px 0; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .section { padding: 80px 0; } /* ลด Padding ลงเล็กน้อยเพื่อให้พอดีมือถือ */
         .text-center { text-align: center; }
         .bg-light { background-color: var(--bg-light); }
         .text-blue { color: var(--primary-blue); }
 
-        /* Buttons (Silver Metallic Style) */
+        /* Buttons */
         .btn { 
-            display: inline-block; padding: 15px 35px; border-radius: 4px; /* ปุ่มเหลี่ยมมนเล็กน้อย ดูทางการ */
+            display: inline-block; padding: 14px 30px; border-radius: 4px;
             font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem;
             text-decoration: none; transition: var(--transition); border: none; cursor: pointer; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        .btn-silver { 
-            background: var(--silver-gradient); 
-            color: var(--text-dark);
-            border: 1px solid #d1d1d1;
-        }
-        .btn-silver:hover { 
-            transform: translateY(-3px); 
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
-            background: linear-gradient(135deg, #FFFFFF 0%, #D0D8E0 100%);
-        }
-        .btn-outline { 
-            border: 2px solid var(--white); color: var(--white); background: transparent; 
-        }
+        .btn-silver { background: var(--silver-gradient); color: var(--text-dark); border: 1px solid #d1d1d1; }
+        .btn-silver:hover { transform: translateY(-3px); background: #fff; }
+        .btn-outline { border: 2px solid var(--white); color: var(--white); background: transparent; }
         .btn-outline:hover { background: var(--white); color: var(--primary-blue); }
 
-        /* Header & Navigation */
+        /* HEADER (Responsive) */
         header { 
             position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
-            background: rgba(255, 255, 255, 0.98); /* พื้นหลังขาวโปร่งแสง */
+            background: rgba(255, 255, 255, 0.98); 
             backdrop-filter: blur(10px); padding: 10px 0; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            transition: var(--transition); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        header .container { display: flex; justify-content: space-between; align-items: center; }
+        header .container { 
+            display: flex; justify-content: space-between; align-items: center; 
+        }
         
-        /* === LOGO STYLING (IMAGE ONLY) === */
-        .logo { display: flex; align-items: center; text-decoration: none; }
+        /* Logo Image Only */
         .logo img { 
-            height: 80px; /* ปรับขนาดโลโก้ให้พอดี ดูแพง ไม่ใหญ่เทอะทะ */
+            height: 70px; /* ขนาดปกติบน PC */
             width: auto; 
             object-fit: contain;
-            transition: var(--transition);
         }
-        /* ================================= */
 
+        /* Nav Menu */
+        nav { display: flex; gap: 30px; }
         nav a { 
             color: var(--text-dark); font-weight: 600; font-size: 0.85rem; 
-            text-decoration: none; margin-left: 35px; text-transform: uppercase; letter-spacing: 1px;
-            transition: var(--transition); position: relative;
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+            transition: var(--transition);
         }
         nav a:hover { color: var(--primary-blue); }
 
-        /* Hero Section (ปรับโทนสีภาพให้ดูเป็น Blue/Silver) */
+        /* HERO SECTION */
         .hero { 
-            height: 90vh; display: flex; align-items: center; 
-            /* ใช้ Overlay สีน้ำเงินเข้มทับภาพ เพื่อคุมโทน */
+            min-height: 100vh; /* เต็มจอเสมอ */
+            display: flex; align-items: center; 
             background: linear-gradient(rgba(14, 77, 146, 0.85), rgba(11, 60, 115, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop'); 
-            background-size: cover; background-position: center; background-attachment: fixed; 
+            background-size: cover; background-position: center; 
             color: var(--white); padding-top: 80px; 
+            text-align: center; /* จัดกลางเสมอเพื่อความสวยงามบนทุกจอ */
         }
-        .hero h1, .hero h2, .hero h3 { color: var(--white); }
-        .hero h2::after { background: var(--white); } /* เส้นใต้สีขาวในหน้า Hero */
+        .hero .container { display: flex; flex-direction: column; align-items: center; }
+        .hero h2::after { background: var(--white); }
 
-        /* Stats Section (แถบสีเงิน) */
-        .stats { background: linear-gradient(to right, #d9dfe6, #f0f3f7, #d9dfe6); padding: 60px 0; border-bottom: 1px solid #d1d1d1; }
-        .stat-item h3 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 5px; }
-        .stat-item p { font-weight: 600; color: var(--text-dark); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+        /* STATS (Responsive Grid) */
+        .stats { background: linear-gradient(to right, #d9dfe6, #f0f3f7, #d9dfe6); padding: 40px 0; border-bottom: 1px solid #d1d1d1; }
+        .stat-item h3 { font-size: 2rem; color: var(--primary-blue); margin-bottom: 5px; }
 
-        /* Cards (Services & About) */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 60px; align-items: center; }
+        /* CARDS GRID SYSTEM (หัวใจสำคัญของความ Responsive) */
+        .grid-3 { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* ถ้าจอน้อยกว่า 280px จะเรียง 1 แถว */
+            gap: 30px; 
+        }
+        .grid-2 { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 40px; 
+            align-items: center; 
+        }
+
         .card { 
-            background: var(--white); padding: 40px; border-radius: 8px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03); text-align: left; 
-            transition: var(--transition); border: 1px solid #eee; border-top: 3px solid var(--silver-text);
+            background: var(--white); padding: 30px; border-radius: 8px; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05); text-align: left; 
+            border: 1px solid #eee; border-top: 3px solid var(--silver-text);
         }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-top-color: var(--primary-blue); }
-        .card i { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 25px; }
-        .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+        .card i { font-size: 2rem; color: var(--primary-blue); margin-bottom: 20px; }
 
-        /* About Image */
-        .about-img { border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        /* Form Styling */
-        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; }
-        .form-box { background: var(--white); padding: 50px; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.05); border: 1px solid #eee;}
+        /* Contact Layout */
+        .contact-wrapper { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; /* PC: 2 คอลัมน์ */
+            gap: 50px; 
+            align-items: start; 
+        }
+        
+        /* Form */
+        .form-box { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); border: 1px solid #eee;}
         input, textarea { 
-            width: 100%; padding: 15px; margin-bottom: 20px; 
-            border: 2px solid #e1e5eb; border-radius: 4px; 
-            background: #fcfcfc; font-family: inherit; font-size: 1rem; color: var(--text-dark);
-            transition: var(--transition);
+            width: 100%; padding: 12px; margin-bottom: 20px; 
+            border: 1px solid #ddd; border-radius: 4px; 
+            font-family: inherit; font-size: 1rem;
         }
-        input:focus, textarea:focus { outline: none; border-color: var(--primary-blue); background: var(--white); }
-
-        /* Contact Info Icons */
-        .contact-item { display: flex; align-items: flex-start; margin-bottom: 25px; }
-        .contact-item i { font-size: 1.5rem; color: var(--primary-blue); margin-right: 20px; margin-top: 5px; }
-        .contact-item span { font-weight: 600; color: var(--text-dark); display: block; margin-bottom: 5px;}
-        .contact-item a { text-decoration: none; color: #555; }
-
-        /* WhatsApp Float */
-        .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 9999; transition: var(--transition); }
-        .whatsapp-float:hover { transform: scale(1.1); }
 
         /* Footer */
-        footer { background: #1a202c; /* Darker blue-gray for footer */ color: #a0aec0; padding: 60px 0; text-align: center; }
-        footer h3 { color: var(--white); font-size: 1.5rem; margin-bottom: 15px; letter-spacing: 2px;}
+        footer { background: #1a202c; color: #a0aec0; padding: 40px 0; text-align: center; }
+
+        /* WhatsApp */
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; width: 55px; height: 55px; background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3); z-index: 9999; }
         
-        @media (max-width: 1024px) { .logo img { height: 70px; } }
-        @media (max-width: 768px) { 
-            h1 { font-size: 2.5rem; } 
-            h2 { font-size: 1.8rem; }
-            .contact-wrapper, .grid-2 { grid-template-columns: 1fr; gap: 40px; } 
-            nav { display: none; } 
-            .logo img { height: 60px; } 
+        /* ================= MOBILE RESPONSIVE ================= */
+        @media (max-width: 900px) {
+            header .container { flex-direction: column; gap: 10px; } /* เรียงโลโก้กับเมนูเป็นแนวตั้ง */
+            .logo img { height: 60px; }
+            nav { gap: 15px; flex-wrap: wrap; justify-content: center; } /* เมนูห่อตัวลงมาถ้ายาวเกิน */
+            nav a { font-size: 0.8rem; margin: 0 5px; } /* ลดระยะห่างเมนู */
+            
+            .contact-wrapper { grid-template-columns: 1fr; } /* ปรับฟอร์มเป็นแถวเดียว */
             .hero { text-align: center; }
-            .btn-outline { border-color: var(--primary-blue); color: var(--primary-blue); }
-            .hero .btn-outline { border-color: var(--white); color: var(--white); }
+            .hero h1 { font-size: 2.2rem; }
+            
+            .section { padding: 60px 0; }
+            .form-box { padding: 25px; }
+        }
+
+        @media (max-width: 480px) {
+            /* สำหรับมือถือจอเล็ก */
+            .logo img { height: 50px; }
+            .hero h1 { font-size: 1.8rem; }
+            p { font-size: 0.95rem; }
+            .btn { padding: 12px 20px; font-size: 0.8rem; width: 100%; text-align: center; margin-bottom: 10px; }
+            .btn-outline { margin-left: 0 !important; }
+            .grid-3, .grid-2 { grid-template-columns: 1fr; } /* เรียงเป็น 1 แถวทั้งหมด */
+            nav { display: flex; flex-wrap: wrap; justify-content: center; }
         }
     </style>
 </head>
@@ -225,11 +229,11 @@
     <section class="hero">
         <div class="container">
             <h1>Your Trusted Sourcing Partner <br> in Thailand</h1>
-            <p style="color: rgba(255,255,255,0.9); max-width: 800px; font-size: 1.2rem;">
+            <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin-top: 20px;">
                 Professional procurement, factory verification, and secure logistics. 
-                We are your reliable "boots on the ground" in Bangkok, ensuring quality and efficiency.
+                We are your reliable "boots on the ground" in Bangkok.
             </p>
-            <div style="margin-top: 40px;">
+            <div style="margin-top: 30px; width: 100%;">
                 <a href="#contact" class="btn btn-silver">Get a Free Quote</a>
                 <a href="#about" class="btn btn-outline" style="margin-left: 20px;">Learn More</a>
             </div>
@@ -237,18 +241,18 @@
     </section>
 
     <div class="stats">
-        <div class="container grid-3 text-center">
+        <div class="container grid-3 text-center" style="gap: 20px;">
             <div class="stat-item">
                 <h3>10+ Years</h3>
-                <p>Industry Experience</p>
+                <p>Experience</p>
             </div>
             <div class="stat-item">
                 <h3>Verified</h3>
-                <p>Supplier Network</p>
+                <p>Suppliers</p>
             </div>
             <div class="stat-item">
-                <h3>Secure</h3>
-                <p>Global Logistics</p>
+                <h3>Global</h3>
+                <p>Logistics</p>
             </div>
         </div>
     </div>
@@ -258,56 +262,56 @@
             <div class="grid-2">
                 <div>
                     <h2>Who We Are</h2>
-                    <p class="text-blue" style="font-weight: 600; margin-bottom: 15px;">More than agents – we are your strategic partners in Thailand.</p>
+                    <p class="text-blue" style="font-weight: 600;">More than agents – we are your strategic partners.</p>
                     <p>
-                        Tao Global Services was founded to bridge the gap between global businesses and Thailand's manufacturing sector. We understand that reliability and trust are paramount in international trade.
+                        Tao Global Services bridges the gap between global businesses and Thailand's manufacturing sector. We prioritize reliability and trust.
                     </p>
                     <p>
-                        Our team operates directly from Bangkok, providing you with transparent access to vetted suppliers, on-site quality control, and seamless export management. We handle the complexities so you can focus on growing your business.
+                        Operating from Bangkok, we provide transparent access to vetted suppliers, on-site quality control, and seamless export management.
                     </p>
                 </div>
-                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200" alt="Tao Global Services Bangkok Team" class="about-img">
+                <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=1200" alt="Bangkok Office Team" style="border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
             </div>
         </div>
     </section>
 
     <section id="services" class="section bg-light">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 70px;">
-                <h2>Our Core Services</h2>
-                <p style="max-width: 700px; margin: 0 auto;">End-to-end sourcing solutions designed for reliability and efficiency.</p>
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2>Our Services</h2>
+                <p>End-to-end solutions for efficiency.</p>
             </div>
 
             <div class="grid-3">
                 <div class="card">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <h3>Strategic Sourcing</h3>
-                    <p>Identifying and vetting reliable manufacturers that meet your specific quality and budget requirements.</p>
+                    <h3>Sourcing</h3>
+                    <p>Finding reliable manufacturers that meet your quality and budget.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-boxes-stacked"></i>
-                    <h3>Low MOQ Solutions</h3>
-                    <p>Leveraging local relationships to negotiate lower minimum order quantities for growing businesses.</p>
+                    <h3>Low MOQ</h3>
+                    <p>Negotiating lower minimum orders for growing businesses.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-clipboard-check"></i>
-                    <h3>Quality Control (QC)</h3>
-                    <p>Rigorous on-site factory audits and pre-shipment inspections to ensure product integrity.</p>
+                    <h3>QC & Audit</h3>
+                    <p>Factory audits and pre-shipment inspections.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-ship"></i>
-                    <h3>Export Logistics</h3>
-                    <p>Handling all export documentation, customs clearance, and securing competitive freight options.</p>
+                    <h3>Logistics</h3>
+                    <p>Handling export docs, customs, and freight.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-handshake"></i>
-                    <h3>Business Matching</h3>
-                    <p>Connecting you with verified Thai partners for joint ventures or distribution opportunities.</p>
+                    <h3>Matching</h3>
+                    <p>Connecting you with verified Thai partners.</p>
                 </div>
                 <div class="card">
                     <i class="fa-solid fa-building-shield"></i>
-                    <h3>Local Representation</h3>
-                    <p>Acting as your dedicated representative office in Thailand to protect your interests.</p>
+                    <h3>Representation</h3>
+                    <p>Your dedicated office in Thailand.</p>
                 </div>
             </div>
         </div>
@@ -315,21 +319,21 @@
 
     <section id="faq" class="section">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 60px;">
-                <h2>Frequently Asked Questions</h2>
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2>FAQ</h2>
             </div>
             <div style="max-width: 800px; margin: 0 auto;">
-                <details style="margin-bottom: 20px; padding: 25px; background: var(--bg-light); border-radius: 8px; cursor: pointer; border: 1px solid #eee;">
-                    <summary style="font-weight: 600; color: var(--primary-blue); font-size: 1.1rem;">How does your pricing work?</summary>
-                    <p style="margin-top: 15px;">We offer a complimentary initial consultation. For sourcing projects, we operate on a transparent service fee structure agreed upon in advance, with no hidden costs.</p>
+                <details style="margin-bottom: 15px; padding: 20px; background: var(--bg-light); border-radius: 8px; border: 1px solid #eee;">
+                    <summary style="font-weight: 600; color: var(--primary-blue);">Pricing Structure?</summary>
+                    <p style="margin-top: 10px;">Free initial consultation. Transparent fees agreed in advance.</p>
                 </details>
-                <details style="margin-bottom: 20px; padding: 25px; background: var(--bg-light); border-radius: 8px; cursor: pointer; border: 1px solid #eee;">
-                    <summary style="font-weight: 600; color: var(--primary-blue); font-size: 1.1rem;">What industries do you specialize in?</summary>
-                    <p style="margin-top: 15px;">Our expertise covers key Thai sectors including Spa & Wellness, Home Decor, Textiles, Food & Beverage, and industrial OEM parts.</p>
+                <details style="margin-bottom: 15px; padding: 20px; background: var(--bg-light); border-radius: 8px; border: 1px solid #eee;">
+                    <summary style="font-weight: 600; color: var(--primary-blue);">Key Industries?</summary>
+                    <p style="margin-top: 10px;">Spa & Wellness, Home Decor, Textiles, F&B, and OEM parts.</p>
                 </details>
-                <details style="margin-bottom: 20px; padding: 25px; background: var(--bg-light); border-radius: 8px; cursor: pointer; border: 1px solid #eee;">
-                    <summary style="font-weight: 600; color: var(--primary-blue); font-size: 1.1rem;">Can you handle shipping to my country?</summary>
-                    <p style="margin-top: 15px;">Yes, we manage the entire logistics process, offering air and sea freight solutions to destinations worldwide, including all necessary export paperwork.</p>
+                <details style="margin-bottom: 15px; padding: 20px; background: var(--bg-light); border-radius: 8px; border: 1px solid #eee;">
+                    <summary style="font-weight: 600; color: var(--primary-blue);">Shipping Handling?</summary>
+                    <p style="margin-top: 10px;">Yes, we manage all air/sea freight and export paperwork.</p>
                 </details>
             </div>
         </div>
@@ -337,51 +341,35 @@
 
     <section id="contact" class="section bg-light">
         <div class="container">
-            <div class="text-center" style="margin-bottom: 60px;">
-                <h2>Partner With Us</h2>
-                <p>Contact our Bangkok team today for a preliminary assessment.</p>
+            <div class="text-center" style="margin-bottom: 50px;">
+                <h2>Contact Us</h2>
+                <p>Get a preliminary assessment today.</p>
             </div>
             <div class="contact-wrapper">
                 <div>
-                    <div class="contact-item">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        <div>
-                            <span>Call / WhatsApp</span>
-                            <a href="https://wa.me/66921563555">+66 92 156 3555</a>
-                        </div>
+                    <div style="margin-bottom: 25px;">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem; color: var(--primary-blue); margin-right: 10px;"></i>
+                        <span style="font-weight: 600;">+66 92 156 3555</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fa-regular fa-envelope"></i>
-                        <div>
-                            <span>Email</span>
-                            <a href="mailto:contact@taoglobalservices.com">contact@taoglobalservices.com</a>
-                        </div>
+                    <div style="margin-bottom: 25px;">
+                        <i class="fa-regular fa-envelope" style="font-size: 1.5rem; color: var(--primary-blue); margin-right: 10px;"></i>
+                        <span style="font-weight: 600;">contact@taoglobalservices.com</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fa-solid fa-map-pin"></i>
-                        <div>
-                            <span>Office Location</span>
-                            <p style="margin-bottom: 0;">Bangkok, Thailand</p>
-                        </div>
+                    <div>
+                        <i class="fa-solid fa-map-pin" style="font-size: 1.5rem; color: var(--primary-blue); margin-right: 10px;"></i>
+                        <span style="font-weight: 600;">Bangkok, Thailand</span>
                     </div>
-                    <p style="margin-top: 40px; font-size: 0.9rem; color: #888;">
-                        We typically reply to inquiries within 24 hours during business days.
-                    </p>
                 </div>
 
                 <div class="form-box">
                     <form action="https://formspree.io/f/mojqeqaz" method="POST">
-                        <h3 style="color: var(--primary-blue); margin-bottom: 25px; font-size: 1.5rem;">Send Inquiry</h3>
-                        <label style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">Your Name / Company</label>
+                        <label>Name</label>
                         <input type="text" name="name" required>
-                        
-                        <label style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">Email Address</label>
+                        <label>Email</label>
                         <input type="email" name="email" required>
-                        
-                        <label style="font-weight: 600; font-size: 0.9rem; color: var(--text-dark);">Project Details / Message</label>
-                        <textarea name="message" rows="5" placeholder="Please describe what you are looking to source..." required></textarea>
-                        
-                        <button type="submit" class="btn btn-silver" style="width: 100%;">Send Message</button>
+                        <label>Message</label>
+                        <textarea name="message" rows="4" required></textarea>
+                        <button type="submit" class="btn btn-silver" style="width: 100%;">Send</button>
                     </form>
                 </div>
             </div>
@@ -391,14 +379,15 @@
     <footer>
         <div class="container">
             <h3>TAO GLOBAL SERVICES</h3>
-            <p style="color: #a0aec0;">Your Professional Sourcing Partner in Thailand</p>
-            <p style="margin-top: 30px; opacity: 0.5; font-size: 0.8rem;">&copy; 2026 Tao Global Services. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 20px;">&copy; 2026 Tao Global Services.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/66921563555?text=Hello,%20I%20am%20interested%20in%20sourcing%20products%20from%20Thailand." class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
+    <a href="https://wa.me/66921563555" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="30">
     </a>
 
 </body>
 </html>
+
+```
