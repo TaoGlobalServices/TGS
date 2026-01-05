@@ -1,84 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - TaoGlobalServices</title>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tao Global Services | Thailand Sourcing Agent | Low MOQ & Personal Service</title>
+  <meta name="description" content="Premium sourcing agent in Bangkok, Thailand. We specialize in low MOQ and personalized service for small businesses. Factory audits, QC, and logistics.">
+  <meta name="keywords" content="Thailand sourcing agent, Low MOQ Thailand, Bangkok procurement, Thai manufacturers, product sourcing Bangkok, small business sourcing Thailand">
+  <link rel="canonical" href="https://www.taoglobalservices.com/" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Tao Global Services",
+    "description": "Premium Sourcing Agent in Thailand specializing in Low MOQ and Personal Service for small businesses.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bangkok",
+      "addressCountry": "TH"
+    },
+    "url": "https://www.taoglobalservices.com",
+    "telephone": "+66921563555"
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #101820;
+      --gold: #D4AF37;
+      --platinum: #f4f7f9;
+      --text-main: #2C3E50;
+      --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background-color: #fff; color: var(--text-main); line-height: 1.8; overflow-x: hidden; }
+    header { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); position: sticky; top: 0; border-bottom: 1px solid #e1e8ed; z-index: 1000; }
+    header img { height: 45px; }
+    nav a { margin-left: 30px; font-weight: 600; font-size: 0.75rem; color: var(--navy); text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; transition: var(--transition); }
+    nav a:hover { color: var(--gold); }
+    .hero { min-height: 85vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; overflow: hidden; background: linear-gradient(rgba(16, 24, 32, 0.75), rgba(16, 24, 32, 0.75)), url('hero-bg.jpg') center/cover; color: #fff; }
+    .hero-content { z-index: 2; max-width: 900px; }
+    .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.2; margin-bottom: 25px; text-transform: uppercase; }
+    .hero p { font-size: clamp(1rem, 2vw, 1.2rem); margin-bottom: 40px; color: rgba(255,255,255,0.85); font-weight: 300; letter-spacing: 0.5px; }
+    .cta-btn { background: var(--gold); color: #fff; padding: 20px 50px; border: none; border-radius: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: var(--transition); text-decoration: none; display: inline-block; font-size: 0.85rem; }
+    section { padding: 100px 8%; }
+    .section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 60px; color: var(--navy); text-transform: uppercase; letter-spacing: 2px; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin: 25px auto 0; }
+    .boutique-advantage { background: var(--navy); color: white; border-radius: 12px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 60px; margin-top: -50px; position: relative; z-index: 5; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .adv-item h3 { color: var(--gold); margin-bottom: 15px; font-family: 'Montserrat'; font-size: 1.1rem; text-transform: uppercase; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; max-width: 1200px; margin: 40px auto 0; }
+    .about-img { width: 100%; border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+    .ind-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    .ind-card { background: #fff; padding: 40px; border: 1px solid #e1e8ed; border-radius: 8px; transition: var(--transition); }
+    .ind-card:hover { border-color: var(--gold); box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+    .ind-card h4 { font-family: 'Montserrat'; color: var(--navy); margin-bottom: 15px; text-transform: uppercase; font-size: 1rem; border-left: 3px solid var(--gold); padding-left: 15px; }
+    #contact { background: var(--platinum); }
+    .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1100px; margin: 0 auto; }
+    form { background: #fff; padding: 50px; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.05); }
+    input, textarea { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 15px; margin-bottom: 25px; width: 100%; font-family: inherit; border-radius: 6px; }
+    .submit-btn { background: var(--navy); color: #fff; border: none; padding: 18px; width: 100%; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s; border-radius: 6px; }
+    .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 1000; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3); }
+    footer { padding: 60px 8%; background: var(--navy); color: rgba(255,255,255,0.4); text-align: center; }
+    @media (max-width: 900px) { .about-grid, .contact-container, .boutique-advantage { grid-template-columns: 1fr; padding: 30px; } }
+  </style>
 </head>
 <body>
 
+  <header>
+    <img src="logo.png" alt="Tao Global Services Logo">
     <nav>
-        <a href="index.html" class="nav-brand">TaoGlobalServices</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html" class="active">Services</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="contact.html">Contact</a>
-        </div>
+      <a href="#about">Approach</a>
+      <a href="#categories">Sourcing</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <header class="page-header">
-        <h1>Our Services</h1>
-        <p>โซลูชั่นครบวงจรเพื่อยกระดับธุรกิจของคุณสู่สากล</p>
-    </header>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Your Personal Sourcing Team in <span style="color:var(--gold)">Thailand</span></h1>
+      <p>Boutique service for growing brands. We specialize in **low MOQ solutions**, verified factory audits, and personalized supply chain support.</p>
+      <a href="#contact" class="cta-btn">Start Your Inquiry</a>
+    </div>
+  </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚢</div>
-                    <h3>Import & Export</h3>
-                    <p>บริการนำเข้า-ส่งออกสินค้าครบวงจร ดูแลเรื่องพิธีการศุลกากรและเอกสารทั้งหมด เพื่อความรวดเร็วและถูกต้อง</p>
-                </div>
+  <section style="padding: 0 8%;">
+    <div class="boutique-advantage">
+      <div class="adv-item">
+        <h3>Low MOQ Focus</h3>
+        <p>Flexible manufacturing solutions that allow your brand to test the market without massive inventory risk.</p>
+      </div>
+      <div class="adv-item">
+        <h3>Personalized Service</h3>
+        <p>Direct communication with your partner in Bangkok. We handle the cultural and linguistic barriers for you.</p>
+      </div>
+      <div class="adv-item">
+        <h3>Full Transparency</h3>
+        <p>Direct factory access and honest pricing. We grow when your business grows.</p>
+      </div>
+    </div>
+  </section>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Business Consultant</h3>
-                    <p>ให้คำปรึกษาด้านกลยุทธ์ธุรกิจ การวางแผนการตลาด และการวิเคราะห์คู่แข่งในตลาดต่างประเทศ</p>
-                </div>
+  <section id="about">
+    <div class="about-grid">
+      <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=800" class="about-img" alt="Sourcing Business Support Thailand">
+      <div>
+        <h2 style="font-family: 'Montserrat'; font-size: 2.2rem; color: var(--navy); margin-bottom: 25px;">Strategic Sourcing for Small Brands.</h2>
+        <p style="margin-bottom: 20px;">Tao Global Services provides the **boots-on-the-ground support** that independent entrepreneurs need to succeed in the Thai market.</p>
+        <p>From the first prototype to global delivery, we manage the technical vetting so you can focus on your brand's growth.</p>
+      </div>
+    </div>
+  </section>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🚚</div>
-                    <h3>Logistics Solutions</h3>
-                    <p>บริหารจัดการระบบขนส่งและคลังสินค้า ด้วยเครือข่ายพันธมิตรทั่วโลก เพื่อลดต้นทุนและเพิ่มประสิทธิภาพ</p>
-                </div>
+  <section id="categories" style="background: var(--platinum);">
+    <h2 class="section-title">Niche Categories</h2>
+    <div class="ind-grid">
+      <div class="ind-card">
+        <h4>Beauty & Wellness</h4>
+        <p>OEM skincare, Thai herbal spa products, and premium essential oils with low minimums.</p>
+      </div>
+      <div class="ind-card">
+        <h4>Eco-Lifestyle</h4>
+        <p>Sustainable textiles, wooden home decor, and biodegradable packaging solutions.</p>
+      </div>
+      <div class="ind-card">
+        <h4>Custom OEM</h4>
+        <p>Bespoke plastic, rubber, and technical components tailored to your specifications.</p>
+      </div>
+    </div>
+  </section>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Global Sourcing</h3>
-                    <p>บริการจัดหาแหล่งผลิตและวัตถุดิบคุณภาพสูงจากทั่วทุกมุมโลก ในราคาที่แข่งขันได้</p>
-                </div>
+  <section id="how-it-works">
+    <h2 class="section-title">The Sourcing Framework</h2>
+    
+    <div style="text-align:center; max-width:800px; margin: 0 auto; color:#777;">
+      <p>Sourcing &rarr; Factory Audit &rarr; Sample Approval &rarr; Production QC &rarr; Export Logistics</p>
+    </div>
+  </section>
 
-                <div class="feature-card">
-                    <div class="feature-icon">⚖️</div>
-                    <h3>Legal & Compliance</h3>
-                    <p>ให้คำปรึกษาด้านกฎหมายการค้าระหว่างประเทศ และมาตรฐานสินค้า เพื่อให้ธุรกิจราบรื่นไร้ปัญหา</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
-                    <h3>Partnership Matching</h3>
-                    <p>บริการจับคู่ธุรกิจ (Business Matching) เชื่อมโยงคุณกับคู่ค้าที่มีศักยภาพ</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;">
-                <p style="margin-bottom: 20px;">ต้องการโซลูชั่นที่ปรับแต่งเฉพาะธุรกิจคุณ?</p>
-                <a href="contact.html" class="btn-gold">ปรึกษาเราฟรี</a>
-            </div>
+  <section id="contact">
+    <div class="contact-container">
+      <div class="contact-info">
+        <h2 style="text-transform: uppercase;">Connect With <br>Our Team</h2>
+        <p>Ready to source from Thailand? We offer free initial assessments for small business procurement projects.</p>
+        <div style="margin-top: 40px; font-weight: 600;">
+          <p style="color:var(--gold); margin-bottom: 10px;">WHATSAPP: +66 92 156 3555</p>
+          <p>EMAIL: INFO@TAOGLOBALSERVICES.COM</p>
+          <p style="margin-top: 20px; font-size: 0.8rem; color: #777;">BANGKOK, THAILAND</p>
         </div>
-    </section>
+      </div>
+      <form action="https://formspree.io/f/mojqeqaz" method="POST">
+        <input type="text" name="name" placeholder="Name / Brand" required>
+        <input type="email" name="email" placeholder="Business Email" required>
+        <textarea name="message" rows="4" placeholder="Tell us about your product and the quantities you need." required></textarea>
+        <button type="submit" class="submit-btn">Send Inquiry</button>
+      </form>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2024 TaoGlobalServices. All Rights Reserved.</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Tao Global Services | Bangkok, Thailand</p>
+    <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.4; letter-spacing: 1.5px;">PERSONAL SERVICE • LOW MOQ • THAILAND SOURCING</p>
+  </footer>
 
-    <a href="https://wa.me/66921563555?text=สอบถามเรื่องบริการครับ" class="whatsapp-float" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon">
-    </a>
+  <a href="https://wa.me/66921563555" class="whatsapp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="32" alt="WhatsApp">
+  </a>
 
 </body>
 </html>
