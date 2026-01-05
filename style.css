@@ -1,0 +1,111 @@
+/* --- Modern Luxury Style for TaoGlobalServices --- */
+
+/* Reset & Fonts */
+* { box-sizing: border-box; }
+body {
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* 1. Navigation Bar (แบบหรู เรียบ) */
+nav {
+    background: #0a192f; /* สีกรมท่ามืดสุดๆ */
+    padding: 15px 5%; /* เว้นขอบซ้ายขวา 5% */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.nav-brand {
+    color: #d4af37; /* สีทอง */
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+    padding: 5px 10px;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #d4af37;
+}
+
+/* 2. Hero Section (ส่วนหัวใหญ่อลังการ) */
+.hero {
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ตกแต่งพื้นหลัง Hero ให้ดูมีมิติ */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.hero h1 span { color: #d4af37; } /* คำที่เน้นสีทอง */
+
+.hero p {
+    font-size: 1.2em;
+    color: #e2e8f0;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+/* ปุ่มหลัก (Main Button) */
+.btn-gold {
+    background: linear-gradient(45deg, #d4af37, #f3d066);
+    color: #0f2027;
+    padding: 12px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+}
