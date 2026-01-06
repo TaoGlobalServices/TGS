@@ -1,3 +1,12 @@
+ได้เลยครับคุณเต๋า
+
+ผมได้นำข้อความใหม่ **"Global Standards, Local Knowledge..."** เข้าไปใส่ในส่วน **Core Expertise** ให้เรียบร้อยแล้วครับ
+
+และเพื่อให้สอดคล้องกับคำว่า **"Two Pillars" (2 เสาหลัก)** ผมจึงปรับ Layout ในส่วนนี้จากเดิมที่เป็นการ์ด 3 ใบ ให้กลายเป็น **2 คอลัมน์ (ซ้าย-ขวา)** เพื่อให้แบ่งหัวข้อ Global Standards และ Local Knowledge ได้ชัดเจนสวยงามตามเนื้อหาครับ
+
+นี่คือโค้ดฉบับสมบูรณ์ ก๊อปปี้ไปใช้ได้เลยครับ:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,7 +72,6 @@
         header.scrolled { padding: 10px 0; }
         header .container { display: flex; justify-content: space-between; align-items: center; position: relative; }
         
-        /* Logo styling adjusted to center properly if needed, currently left aligned */
         .logo { font-weight: 700; font-size: 1.5rem; text-decoration: none; color: var(--primary-blue); display: flex; align-items: center; gap: 10px; }
         .logo img { height: 60px; width: auto; transition: height 0.3s ease; }
         header.scrolled .logo img { height: 45px; }
@@ -106,7 +114,7 @@
             color: rgba(255,255,255,0.95); 
             font-size: 1.15rem; 
             font-weight: 300; 
-            max-width: 800px; /* Increased width for better reading of long text */
+            max-width: 800px; 
             margin: 0 auto 30px;
             line-height: 1.8;
         }
@@ -136,19 +144,29 @@
             box-shadow: 0 5px 15px rgba(14, 77, 146, 0.3);
         }
 
-        /* SERVICES GRID */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { 
-            padding: 50px 30px; border-radius: 16px; background: #fff; 
+        /* SERVICES / CORE EXPERTISE STYLING (NEW 2 PILLARS) */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; align-items: start; }
+        
+        /* Specific card style for expertise to handle lists */
+        .expertise-card { 
+            padding: 50px 40px; border-radius: 16px; background: #fff; 
             transition: var(--transition); border-bottom: 4px solid transparent; 
             box-shadow: var(--shadow-card); 
-            text-align: center;
+            height: 100%;
         }
-        .card:hover { transform: translateY(-10px); border-bottom-color: var(--primary-blue); }
-        .card i { font-size: 3rem; color: var(--primary-blue); margin-bottom: 25px; }
+        .expertise-card:hover { transform: translateY(-5px); border-bottom-color: var(--primary-blue); }
+        .expertise-card i { font-size: 3rem; color: var(--primary-blue); margin-bottom: 25px; display: block; text-align: center; }
+        
+        /* List with Checkmarks */
+        .feature-list { list-style: none; padding: 0; margin-top: 20px; text-align: left; }
+        .feature-list li { margin-bottom: 20px; padding-left: 30px; position: relative; color: var(--text-dark); }
+        .feature-list li::before { 
+            content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; 
+            position: absolute; left: 0; top: 3px; color: var(--primary-blue); font-size: 1rem; 
+        }
+        .feature-list strong { color: var(--primary-blue); font-weight: 700; }
 
         /* CONTACT SECTION */
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 60px; align-items: start; }
         .contact-info p { font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
         .contact-info i { color: var(--primary-blue); font-size: 1.3rem; width: 25px; }
         
@@ -208,7 +226,7 @@
             
             .section { padding: 60px 0; }
             h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; padding: 0 10px; } /* Mobile text fix */
+            .hero p { font-size: 1rem; padding: 0 10px; }
             .grid-2 { grid-template-columns: 1fr; gap: 40px; }
             .timeline-grid::before { display: none; }
         }
@@ -239,7 +257,7 @@
         <div class="container">
             <h1 class="reveal">Dedicated Partner for <br> Personalized Sourcing in Thailand</h1>
             <p class="reveal">
-                Your trusted eyes and ears in Thailand. Tao Global Services helps you navigate the complexities of local sourcing with transparency and precision. We take care of the small details and quality checks, allowing you to focus on what matters most your business growth.
+                Your trusted eyes and ears in Thailand. Tao Global Services helps you navigate the complexities of local sourcing with transparency and precision. We take care of the small details and quality checks, allowing you to focus on what matters most—your business growth.
             </p>
             <div class="reveal" style="margin-top: 40px;">
                 <a href="#contact" class="btn btn-silver">Start Inquiry</a>
@@ -281,24 +299,39 @@
         <div class="container">
             <div class="text-center reveal" style="margin-bottom: 60px;">
                 <h2>Core Expertise</h2>
-                <p>Global standards, local knowledge.</p>
+                <p style="font-size:1.1rem; color: var(--primary-blue); font-weight:600;">Global Standards, Local Knowledge</p>
+                <p style="max-width: 800px; margin: 20px auto;">
+                    At Tao Global Services, we bridge the gap between international expectations and local manufacturing realities. Our expertise is built on two pillars:
+                </p>
             </div>
-            <div class="grid-3">
-                <div class="card reveal">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <h3>Strategic Sourcing</h3>
-                    <p>Finding the right factory, not just the first factory found on Alibaba.</p>
+            
+            <div class="grid-2" style="align-items: stretch;">
+                
+                <div class="expertise-card reveal">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <h3 class="text-center">1. Global Standards</h3>
+                    <ul class="feature-list">
+                        <li><strong>Rigorous Quality Control:</strong> We apply international inspection standards (AQL) to ensure every product meets your specific requirements.</li>
+                        <li><strong>Professional Communication:</strong> Clear, transparent, and timely updates. We speak your business language, ensuring no details are lost.</li>
+                        <li><strong>Ethical Sourcing:</strong> We prioritize suppliers who adhere to fair labor practices and safety standards.</li>
+                    </ul>
                 </div>
-                <div class="card reveal">
-                    <i class="fa-solid fa-handshake"></i>
-                    <h3>Negotiation</h3>
-                    <p>Securing better MOQs and pricing through our established local networks.</p>
+
+                <div class="expertise-card reveal">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h3 class="text-center">2. Local Knowledge</h3>
+                    <ul class="feature-list">
+                        <li><strong>Deep Supplier Network:</strong> Access to a vetted database of Thai manufacturers, from large factories to specialized craft workshops.</li>
+                        <li><strong>On-the-Ground Presence:</strong> We conduct face-to-face negotiations and unannounced factory visits to verify production status.</li>
+                        <li><strong>Logistics & Cultural Navigation:</strong> We understand Thai business culture and local logistics, helping you bypass delays.</li>
+                    </ul>
                 </div>
-                <div class="card reveal">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                    <h3>Factory Audits</h3>
-                    <p>Protecting your brand through physical verification and production oversight.</p>
-                </div>
+
+            </div>
+
+            <div class="reveal" style="margin-top: 50px; background: #fff; padding: 40px; border-radius: 12px; border-left: 5px solid var(--primary-blue); box-shadow: var(--shadow-card);">
+                <h3 style="margin-bottom: 15px;">Why this matters for you?</h3>
+                <p style="margin-bottom: 0;">Whether you are a global brand looking to diversify your supply chain or a startup making your first move into Thailand, our expertise ensures that your sourcing journey is secure, scalable, and stress-free.</p>
             </div>
         </div>
     </section>
@@ -375,3 +408,5 @@
 
 </body>
 </html>
+
+```
