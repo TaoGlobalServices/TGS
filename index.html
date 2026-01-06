@@ -1,22 +1,23 @@
-ได้เลยครับคุณเต๋า
-
-ผมได้นำข้อความใหม่ **"Global Standards, Local Knowledge..."** เข้าไปใส่ในส่วน **Core Expertise** ให้เรียบร้อยแล้วครับ
-
-และเพื่อให้สอดคล้องกับคำว่า **"Two Pillars" (2 เสาหลัก)** ผมจึงปรับ Layout ในส่วนนี้จากเดิมที่เป็นการ์ด 3 ใบ ให้กลายเป็น **2 คอลัมน์ (ซ้าย-ขวา)** เพื่อให้แบ่งหัวข้อ Global Standards และ Local Knowledge ได้ชัดเจนสวยงามตามเนื้อหาครับ
-
-นี่คือโค้ดฉบับสมบูรณ์ ก๊อปปี้ไปใช้ได้เลยครับ:
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>Tao Global Services | Professional Thailand Sourcing Solutions</title>
-    <meta name="description" content="Your trusted sourcing partner in Thailand. Professional procurement, factory verification, and secure export logistics.">
+    <title>Tao Global Services | Professional Thailand Sourcing & Procurement</title>
+    <meta name="description" content="Your dedicated sourcing partner in Thailand. We handle factory verification, quality control (QC), and export logistics. Global standards, local expertise.">
+    <meta name="keywords" content="Thailand Sourcing Agent, Sourcing Company Bangkok, Factory Audit Thailand, Procurement Service Thailand, Tao Global Services">
+    <meta name="author" content="Tao Global Services Co., Ltd.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://www.taoglobalservices.com/" />
+
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.taoglobalservices.com/">
+    <meta property="og:title" content="Tao Global Services | Your Sourcing Gateway to Thailand">
+    <meta property="og:description" content="Transparency, Reliability, Growth. We bridge the gap between international expectations and local manufacturing realities.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -76,7 +77,6 @@
         .logo img { height: 60px; width: auto; transition: height 0.3s ease; }
         header.scrolled .logo img { height: 45px; }
 
-        /* Desktop Nav */
         .nav-menu { display: flex; gap: 30px; align-items: center; }
         .nav-menu a { 
             color: var(--text-dark); font-weight: 600; font-size: 0.85rem; 
@@ -90,7 +90,6 @@
         .nav-menu a:hover { color: var(--primary-blue); }
         .nav-menu a:hover::after { width: 100%; }
 
-        /* Mobile Hamburger */
         .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--primary-blue); }
 
         /* HERO SECTION */
@@ -101,22 +100,14 @@
             color: var(--white); text-align: center;
             padding-top: 80px;
         }
-        
-        /* White text for Hero Header */
         .hero h1 { 
             color: #FFFFFF !important; 
             text-shadow: 0 4px 15px rgba(0,0,0,0.3);
             margin-bottom: 20px;
         }
-        
-        /* Updated width for the longer paragraph */
         .hero p { 
-            color: rgba(255,255,255,0.95); 
-            font-size: 1.15rem; 
-            font-weight: 300; 
-            max-width: 800px; 
-            margin: 0 auto 30px;
-            line-height: 1.8;
+            color: rgba(255,255,255,0.95); font-size: 1.15rem; font-weight: 300; 
+            max-width: 800px; margin: 0 auto 30px; line-height: 1.8;
         }
 
         /* TIMELINE PROCESS */
@@ -133,8 +124,7 @@
         .step { 
             background: #fff; padding: 40px 25px; border-radius: 16px; 
             position: relative; box-shadow: var(--shadow-card); z-index: 1;
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03); transition: var(--transition);
         }
         .step:hover { transform: translateY(-5px); }
         .step-num { 
@@ -144,20 +134,16 @@
             box-shadow: 0 5px 15px rgba(14, 77, 146, 0.3);
         }
 
-        /* SERVICES / CORE EXPERTISE STYLING (NEW 2 PILLARS) */
+        /* EXPERTISE SECTION */
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; align-items: start; }
-        
-        /* Specific card style for expertise to handle lists */
         .expertise-card { 
             padding: 50px 40px; border-radius: 16px; background: #fff; 
             transition: var(--transition); border-bottom: 4px solid transparent; 
-            box-shadow: var(--shadow-card); 
-            height: 100%;
+            box-shadow: var(--shadow-card); height: 100%;
         }
         .expertise-card:hover { transform: translateY(-5px); border-bottom-color: var(--primary-blue); }
         .expertise-card i { font-size: 3rem; color: var(--primary-blue); margin-bottom: 25px; display: block; text-align: center; }
         
-        /* List with Checkmarks */
         .feature-list { list-style: none; padding: 0; margin-top: 20px; text-align: left; }
         .feature-list li { margin-bottom: 20px; padding-left: 30px; position: relative; color: var(--text-dark); }
         .feature-list li::before { 
@@ -170,7 +156,6 @@
         .contact-info p { font-size: 1.1rem; margin-bottom: 20px; display: flex; align-items: center; gap: 15px; }
         .contact-info i { color: var(--primary-blue); font-size: 1.3rem; width: 25px; }
         
-        /* FORM STYLING */
         form { background:#fff; padding:40px; border-radius:16px; box-shadow: var(--shadow-card); }
         input, textarea {
             width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #e1e1e1;
@@ -182,37 +167,28 @@
             box-shadow: 0 0 0 4px rgba(14, 77, 146, 0.1);
         }
 
-        /* Buttons */
         .btn { 
             padding: 16px 40px; border-radius: 50px; font-weight: 700; 
             text-transform: uppercase; text-decoration: none; display: inline-block; 
-            transition: 0.3s; cursor: pointer; border: none; letter-spacing: 1px;
-            font-size: 0.9rem;
+            transition: 0.3s; cursor: pointer; border: none; letter-spacing: 1px; font-size: 0.9rem;
         }
         .btn-silver { 
-            background: var(--silver-gradient); color: var(--primary-blue); 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--silver-gradient); color: var(--primary-blue); box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .btn-silver:hover { 
-            transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); 
-            background: #fff;
+            transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); background: #fff;
         }
 
-        /* WhatsApp */
         .whatsapp-float { 
             position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; 
-            background: #25d366; border-radius: 50%; display: flex; 
-            align-items: center; justify-content: center; 
-            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 9999; 
-            transition: 0.3s;
+            background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 9999; transition: 0.3s;
         }
         .whatsapp-float:hover { transform: scale(1.1); }
 
-        /* FOOTER */
         footer { background: var(--text-dark); color: #fff; padding: 40px 0; font-size: 0.9rem; }
         footer p { color: rgba(255,255,255,0.6); margin: 0; }
 
-        /* RESPONSIVE (MOBILE) */
         @media (max-width: 900px) {
             .hamburger { display: block; }
             .nav-menu { 
@@ -223,7 +199,6 @@
             }
             .nav-menu.active { max-height: 300px; padding: 20px 0; }
             .nav-menu a { width: 100%; text-align: center; padding: 15px; border-bottom: 1px solid #f0f0f0; }
-            
             .section { padding: 60px 0; }
             h1 { font-size: 2.2rem; }
             .hero p { font-size: 1rem; padding: 0 10px; }
@@ -237,7 +212,7 @@
     <header id="main-header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo.png" alt="Tao Global Services Logo">
+                <img src="logo.png" alt="Tao Global Services - Thailand Sourcing Agency Logo">
             </a>
 
             <div class="hamburger" id="mobile-toggle">
@@ -253,113 +228,115 @@
         </div>
     </header>
 
-    <section id="about" class="hero">
-        <div class="container">
-            <h1 class="reveal">Dedicated Partner for <br> Personalized Sourcing in Thailand</h1>
-            <p class="reveal">
-                Your trusted eyes and ears in Thailand. Tao Global Services helps you navigate the complexities of local sourcing with transparency and precision. We take care of the small details and quality checks, allowing you to focus on what matters most—your business growth.
-            </p>
-            <div class="reveal" style="margin-top: 40px;">
-                <a href="#contact" class="btn btn-silver">Start Inquiry</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="process" class="section">
-        <div class="container text-center">
-            <h2 class="reveal">The Sourcing Journey</h2>
-            <p class="reveal">Our 4-step framework ensures your success from inquiry to delivery.</p>
-            
-            <div class="timeline-grid">
-                <div class="step reveal">
-                    <div class="step-num">1</div>
-                    <h3>Consultation</h3>
-                    <p>We analyze your product needs, target pricing, and quality standards in detail.</p>
-                </div>
-                <div class="step reveal">
-                    <div class="step-num">2</div>
-                    <h3>Sourcing</h3>
-                    <p>We vet and audit factories to find the perfect manufacturing partner.</p>
-                </div>
-                <div class="step reveal">
-                    <div class="step-num">3</div>
-                    <h3>Quality Control</h3>
-                    <p>Rigorous pre-shipment inspections to ensure specs match your requirements.</p>
-                </div>
-                <div class="step reveal">
-                    <div class="step-num">4</div>
-                    <h3>Logistics</h3>
-                    <p>Managing documentation and export logistics for a seamless delivery.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="section bg-light">
-        <div class="container">
-            <div class="text-center reveal" style="margin-bottom: 60px;">
-                <h2>Core Expertise</h2>
-                <p style="font-size:1.1rem; color: var(--primary-blue); font-weight:600;">Global Standards, Local Knowledge</p>
-                <p style="max-width: 800px; margin: 20px auto;">
-                    At Tao Global Services, we bridge the gap between international expectations and local manufacturing realities. Our expertise is built on two pillars:
+    <main>
+        <section id="about" class="hero">
+            <div class="container">
+                <h1 class="reveal">Dedicated Partner for <br> Personalized Sourcing in Thailand</h1>
+                <p class="reveal">
+                    Your trusted eyes and ears in Thailand. Tao Global Services helps you navigate the complexities of local sourcing with transparency and precision. We take care of the small details and quality checks, allowing you to focus on what matters most—your business growth.
                 </p>
+                <div class="reveal" style="margin-top: 40px;">
+                    <a href="#contact" class="btn btn-silver">Start Inquiry</a>
+                </div>
             </div>
-            
-            <div class="grid-2" style="align-items: stretch;">
+        </section>
+
+        <section id="process" class="section">
+            <div class="container text-center">
+                <h2 class="reveal">The Sourcing Journey</h2>
+                <p class="reveal">Our 4-step framework ensures your success from inquiry to delivery.</p>
                 
-                <div class="expertise-card reveal">
-                    <i class="fa-solid fa-earth-americas"></i>
-                    <h3 class="text-center">1. Global Standards</h3>
-                    <ul class="feature-list">
-                        <li><strong>Rigorous Quality Control:</strong> We apply international inspection standards (AQL) to ensure every product meets your specific requirements.</li>
-                        <li><strong>Professional Communication:</strong> Clear, transparent, and timely updates. We speak your business language, ensuring no details are lost.</li>
-                        <li><strong>Ethical Sourcing:</strong> We prioritize suppliers who adhere to fair labor practices and safety standards.</li>
-                    </ul>
-                </div>
-
-                <div class="expertise-card reveal">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <h3 class="text-center">2. Local Knowledge</h3>
-                    <ul class="feature-list">
-                        <li><strong>Deep Supplier Network:</strong> Access to a vetted database of Thai manufacturers, from large factories to specialized craft workshops.</li>
-                        <li><strong>On-the-Ground Presence:</strong> We conduct face-to-face negotiations and unannounced factory visits to verify production status.</li>
-                        <li><strong>Logistics & Cultural Navigation:</strong> We understand Thai business culture and local logistics, helping you bypass delays.</li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="reveal" style="margin-top: 50px; background: #fff; padding: 40px; border-radius: 12px; border-left: 5px solid var(--primary-blue); box-shadow: var(--shadow-card);">
-                <h3 style="margin-bottom: 15px;">Why this matters for you?</h3>
-                <p style="margin-bottom: 0;">Whether you are a global brand looking to diversify your supply chain or a startup making your first move into Thailand, our expertise ensures that your sourcing journey is secure, scalable, and stress-free.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="grid-2">
-                <div class="reveal contact-info">
-                    <h2>Ready to start?</h2>
-                    <p style="color:var(--text-dark);">Contact our Bangkok office for a preliminary assessment of your procurement needs.</p>
-                    <div style="margin-top: 40px;">
-                        <p><i class="fa-solid fa-location-dot"></i> Bangkok, Thailand</p>
-                        <p><i class="fa-brands fa-whatsapp"></i> +66 92 156 3555</p>
-                        <p><i class="fa-regular fa-envelope"></i> info@taoglobalservices.com</p>
+                <div class="timeline-grid">
+                    <div class="step reveal">
+                        <div class="step-num">1</div>
+                        <h3>Consultation</h3>
+                        <p>We analyze your product needs, target pricing, and quality standards in detail.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">2</div>
+                        <h3>Sourcing</h3>
+                        <p>We vet and audit factories to find the perfect manufacturing partner.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">3</div>
+                        <h3>Quality Control</h3>
+                        <p>Rigorous pre-shipment inspections to ensure specs match your requirements.</p>
+                    </div>
+                    <div class="step reveal">
+                        <div class="step-num">4</div>
+                        <h3>Logistics</h3>
+                        <p>Managing documentation and export logistics for a seamless delivery.</p>
                     </div>
                 </div>
-                <div class="reveal">
-                    <form action="https://formspree.io/f/mojqeqaz" method="POST">
-                        <h3 style="margin-bottom:20px; font-size:1.5rem;">Send a Message</h3>
-                        <input type="text" name="name" placeholder="Full Name / Brand Name" required>
-                        <input type="email" name="email" placeholder="Business Email" required>
-                        <textarea name="message" rows="5" placeholder="Project details (Product type, Quantity, Target Price)..." required></textarea>
-                        <button type="submit" class="btn btn-silver" style="width:100%; border:1px solid #ddd;">Send Request</button>
-                    </form>
+            </div>
+        </section>
+
+        <section id="services" class="section bg-light">
+            <div class="container">
+                <div class="text-center reveal" style="margin-bottom: 60px;">
+                    <h2>Core Expertise</h2>
+                    <p style="font-size:1.1rem; color: var(--primary-blue); font-weight:600;">Global Standards, Local Knowledge</p>
+                    <p style="max-width: 800px; margin: 20px auto;">
+                        At Tao Global Services, we bridge the gap between international expectations and local manufacturing realities. Our expertise is built on two pillars:
+                    </p>
+                </div>
+                
+                <div class="grid-2" style="align-items: stretch;">
+                    <div class="expertise-card reveal">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h3 class="text-center">1. Global Standards</h3>
+                        <ul class="feature-list">
+                            <li><strong>Rigorous Quality Control:</strong> We apply international inspection standards (AQL) to ensure every product meets your specific requirements.</li>
+                            <li><strong>Professional Communication:</strong> Clear, transparent, and timely updates. We speak your business language, ensuring no details are lost.</li>
+                            <li><strong>Ethical Sourcing:</strong> We prioritize suppliers who adhere to fair labor practices and safety standards.</li>
+                        </ul>
+                    </div>
+
+                    <div class="expertise-card reveal">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h3 class="text-center">2. Local Knowledge</h3>
+                        <ul class="feature-list">
+                            <li><strong>Deep Supplier Network:</strong> Access to a vetted database of Thai manufacturers, from large factories to specialized craft workshops.</li>
+                            <li><strong>On-the-Ground Presence:</strong> We conduct face-to-face negotiations and unannounced factory visits to verify production status.</li>
+                            <li><strong>Logistics & Cultural Navigation:</strong> We understand Thai business culture and local logistics, helping you bypass delays.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="reveal" style="margin-top: 50px; background: #fff; padding: 40px; border-radius: 12px; border-left: 5px solid var(--primary-blue); box-shadow: var(--shadow-card);">
+                    <h3 style="margin-bottom: 15px;">Why this matters for you?</h3>
+                    <p style="margin-bottom: 0;">Whether you are a global brand looking to diversify your supply chain or a startup making your first move into Thailand, our expertise ensures that your sourcing journey is secure, scalable, and stress-free.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="reveal contact-info">
+                        <h2>Ready to start?</h2>
+                        <p style="color:var(--text-dark);">Contact our Bangkok office for a preliminary assessment of your procurement needs.</p>
+                        <div style="margin-top: 40px;">
+                            <div itemscope itemtype="https://schema.org/PostalAddress">
+                                <p><i class="fa-solid fa-location-dot"></i> <span itemprop="addressLocality">Bangkok</span>, <span itemprop="addressCountry">Thailand</span></p>
+                            </div>
+                            <p><i class="fa-brands fa-whatsapp"></i> +66 92 156 3555</p>
+                            <p><i class="fa-regular fa-envelope"></i> info@taoglobalservices.com</p>
+                        </div>
+                    </div>
+                    <div class="reveal">
+                        <form action="https://formspree.io/f/mojqeqaz" method="POST">
+                            <h3 style="margin-bottom:20px; font-size:1.5rem;">Send a Message</h3>
+                            <input type="text" name="name" placeholder="Full Name / Brand Name" required>
+                            <input type="email" name="email" placeholder="Business Email" required>
+                            <textarea name="message" rows="5" placeholder="Project details (Product type, Quantity, Target Price)..." required></textarea>
+                            <button type="submit" class="btn btn-silver" style="width:100%; border:1px solid #ddd;">Send Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container text-center">
@@ -367,9 +344,38 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/66921563555" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/66921563555" class="whatsapp-float" target="_blank" aria-label="Chat with us on WhatsApp">
         <i class="fa-brands fa-whatsapp" style="color:white; font-size: 30px;"></i>
     </a>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Tao Global Services Co., Ltd.",
+      "image": "https://www.taoglobalservices.com/logo.png",
+      "description": "Professional sourcing and procurement services in Thailand. Factory audits, QC, and logistics.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangkok",
+        "addressCountry": "TH"
+      },
+      "telephone": "+66921563555",
+      "priceRange": "$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
 
     <script>
         // Header Shrink
@@ -382,19 +388,17 @@
             }
         });
 
-        // Mobile Menu Toggle
+        // Mobile Menu
         const toggle = document.getElementById('mobile-toggle');
         const nav = document.getElementById('nav-menu');
-        
         toggle.addEventListener('click', () => {
             nav.classList.toggle('active');
         });
-
         function closeMenu() {
             nav.classList.remove('active');
         }
 
-        // Scroll Reveal Animation
+        // Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -402,11 +406,8 @@
                 }
             });
         }, { threshold: 0.1 });
-
         document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
     </script>
 
 </body>
 </html>
-
-```
