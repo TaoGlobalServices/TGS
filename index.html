@@ -6,10 +6,7 @@
     
     <title>Tao Global Services | Professional Thailand Sourcing Solutions</title>
     <meta name="description" content="Your trusted sourcing partner in Thailand. Professional procurement, factory verification, and secure export logistics.">
-    <meta property="og:title" content="Tao Global Services">
-    <meta property="og:description" content="Your Sourcing Gateway to Thailand. Transparency, Reliability, Growth.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920">
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -87,22 +84,28 @@
         /* Mobile Hamburger */
         .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--primary-blue); }
 
-        /* HERO SECTION */
+        /* HERO SECTION - FIXED TEXT COLOR HERE */
         .hero { 
             min-height: 100vh; display: flex; align-items: center; 
             background: linear-gradient(135deg, rgba(14, 77, 146, 0.9), rgba(5, 30, 60, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop'); 
             background-size: cover; background-position: center; background-attachment: fixed;
             color: var(--white); text-align: center;
-            padding-top: 80px; /* Offset fixed header */
+            padding-top: 80px;
         }
-        .hero p { color: rgba(255,255,255,0.9); font-size: 1.25rem; font-weight: 300; }
+        
+        /* FIX: Force Hero H1 to be White instead of Blue */
+        .hero h1 { 
+            color: #FFFFFF !important; 
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3); /* Adds shadow to pop out */
+        }
+        
+        .hero p { color: rgba(255,255,255,0.95); font-size: 1.25rem; font-weight: 300; }
 
         /* TIMELINE PROCESS */
         .timeline-grid { 
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
             gap: 30px; margin-top: 60px; position: relative; 
         }
-        /* Line connecting steps (Desktop only) */
         @media (min-width: 900px) {
             .timeline-grid::before {
                 content: ''; position: absolute; top: 40px; left: 0; right: 0; height: 2px;
@@ -196,8 +199,6 @@
             .section { padding: 60px 0; }
             h1 { font-size: 2.2rem; }
             .grid-2 { grid-template-columns: 1fr; gap: 40px; }
-            
-            /* Hide connector line on mobile */
             .timeline-grid::before { display: none; }
         }
     </style>
@@ -207,8 +208,7 @@
     <header id="main-header">
         <div class="container">
             <a href="#" class="logo">
-                <img src="logo.png" alt="Tao Global Services Logo" onerror="this.style.display='none'">
-                <span style="display:inline-block;">TAO GLOBAL</span> 
+                <img src="logo.png" alt="Tao Global Services Logo">
             </a>
 
             <div class="hamburger" id="mobile-toggle">
@@ -328,7 +328,7 @@
     </a>
 
     <script>
-        // 1. Header Shrink
+        // Header Shrink
         window.addEventListener('scroll', function() {
             const header = document.getElementById('main-header');
             if (window.scrollY > 50) {
@@ -338,7 +338,7 @@
             }
         });
 
-        // 2. Mobile Menu Toggle
+        // Mobile Menu Toggle
         const toggle = document.getElementById('mobile-toggle');
         const nav = document.getElementById('nav-menu');
         
@@ -350,7 +350,7 @@
             nav.classList.remove('active');
         }
 
-        // 3. Scroll Reveal Animation
+        // Scroll Reveal Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
