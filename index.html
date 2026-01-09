@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Tao Global Services | Professional Thailand Sourcing & Procurement</title>
+    <meta name="description" content="Your dedicated sourcing partner in Thailand. We handle factory verification, quality control (QC), and export logistics. Global standards, local expertise.">
+    
+    <link rel="canonical" href="https://www.taoglobalservices.com/" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-blue: #0E4D92; 
+            --secondary-blue: #0b3c73;
+            /* Silver Button Gradient */
+            --silver-gradient: linear-gradient(135deg, #E0E0E0 0%, #F5F7FA 50%, #B0B8C0 100%);
+            --silver-hover: linear-gradient(135deg, #ffffff 0%, #e6e6e6 100%);
+            
+            --white: #FFFFFF;
+            --bg-light: #F8FAFC;
+            --text-dark: #2C3E50;
+            --text-gray: #5a6b7c;
+            --shadow-card: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        /* Reset & Base */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--white); 
+            color: var(--text-dark); 
+            line-height: 1.7; 
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3 { color: var(--primary-blue); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); text-transform: uppercase; letter-spacing: -1px; }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 20px; position: relative; display: inline-block; }
+        h2::after { content: ''; display: block; width: 60%; height: 4px; background: var(--silver-gradient); margin: 15px auto 0; border-radius: 2px; }
+        p { color: var(--text-gray); margin-bottom: 15px; }
+
+        /* Utility */
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        .section { padding: 80px 0; }
+        .text-center { text-align: center; }
+        .bg-light { background-color: var(--bg-light); }
+        .highlight-text { color: #f1c40f; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; display: block; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
+
+        /* HEADER & NAV */
+        header { 
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; 
+            background: rgba(255, 255, 255, 0.98); 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+        header.scrolled { padding: 10px 0; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* LOGO STYLING */
+        .logo { display: block; height: 60px; text-decoration: none; color: var(--primary-blue); font-weight: 700; font-size: 1.2rem;} 
+        .logo img { height: 100%; width: auto; display: block; }
+        header.scrolled .logo img { height: 45px; }
+
+        .nav-menu { display: flex; gap: 30px; align-items: center; }
+        .nav-menu a { 
+            color: var(--text-dark); font-weight: 600; font-size: 0.85rem; 
+            text-decoration: none; text-transform: uppercase; letter-spacing: 1px;
+            position: relative; padding: 5px 0;
+        }
+        .nav-menu a:hover { color: var(--primary-blue); }
+
+        .hamburger { display: none; cursor: pointer; font-size: 1.5rem; color: var(--primary-blue); }
+
+        /* HERO SECTION */
+        .hero { 
+            min-height: 100vh; display: flex; align-items: center; 
+            /* Fallback color if image doesn't load */
+            background-color: var(--primary-blue);
+            background-image: linear-gradient(135deg, rgba(14, 77, 146, 0.9), rgba(5, 30, 60, 0.85)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop'); 
+            background-size: cover; background-position: center; background-attachment: fixed;
+            color: var(--white); text-align: center;
+            padding-top: 80px;
+        }
+        .hero h1 { color: #FFFFFF !important; text-shadow: 0 4px 15px rgba(0,0,0,0.3); margin-bottom: 20px; }
+        .hero p { color: rgba(255,255,255,0.95); font-size: 1.15rem; font-weight: 300; max-width: 800px; margin: 0 auto 30px; }
+
+        /* BUTTONS */
+        .btn { 
+            padding: 16px 40px; border-radius: 50px; font-weight: 700; 
+            text-transform: uppercase; text-decoration: none; display: inline-block; 
+            cursor: pointer; border: none; letter-spacing: 1px; font-size: 0.9rem; color: var(--primary-blue);
+        }
+        .btn-silver { 
+            background: var(--silver-gradient); 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .btn-silver:hover { transform: translateY(-3px); background: var(--silver-hover); }
+
+        /* GRID & CARDS */
+        .timeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
+        .step { background: #fff; padding: 40px 25px; border-radius: 16px; box-shadow: var(--shadow-card); position: relative; }
+        .step-num { 
+            width: 50px; height: 50px; background: var(--primary-blue); color: #fff; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-weight: 700; font-size: 1.2rem; margin: 0 auto 20px;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .expertise-card { padding: 40px; border-radius: 16px; background: #fff; box-shadow: var(--shadow-card); border-bottom: 4px solid transparent; transition: 0.3s; }
+        .expertise-card:hover { border-bottom-color: var(--primary-blue); transform: translateY(-5px); }
+        .expertise-card i { font-size: 3rem; color: var(--primary-blue); margin-bottom: 25px; display: block; text-align: center; }
+        
+        .feature-list { list-style: none; margin-top: 20px; text-align: left; }
+        .feature-list li { margin-bottom: 15px; padding-left: 25px; position: relative; }
+        .feature-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary-blue); }
+
+        /* FORMS */
+        form { background:#fff; padding:30px; border-radius:16px; box-shadow: var(--shadow-card); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+        
+        /* WHATSAPP */
+        .whatsapp-float { 
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; 
+            background: #25d366; border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4); z-index: 9999;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        footer { background: var(--text-dark); color: #fff; padding: 40px 0; font-size: 0.9rem; }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 900px) {
+            .hamburger { display: block; }
+            .nav-menu { 
+                position: absolute; top: 100%; left: 0; width: 100%; 
+                background: #fff; flex-direction: column; gap: 0; 
+                max-height: 0; overflow: hidden; transition: 0.4s ease-in-out;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05); padding: 0;
+            }
+            .nav-menu.active { max-height: 400px; padding: 20px 0; }
+            .nav-menu a { width: 100%; text-align: center; padding: 15px; border-bottom: 1px solid #f0f0f0; }
+            .hero h1 { font-size: 2.2rem; }
+            .grid-2 { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="main-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Tao Global Services" onerror="this.style.display='none'; this.parentElement.innerHTML='TAO GLOBAL SERVICES';">
+            </a>
+
+            <div class="hamburger" id="mobile-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#about">About</a>
+                <a href="#process">Process</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="hero">
+            <div class="container">
+                <span class="highlight-text">Your success is our #1 priority</span>
+                
+                <h1>Dedicated Partner for <br> Personalized Sourcing in Thailand</h1>
+                <p>
+                    Your trusted eyes and ears in Thailand. We navigate the complexities of local sourcing with transparency and precision, allowing you to focus on what matters most—your business growth.
+                </p>
+                <div style="margin-top: 40px;">
+                    <a href="#contact" class="btn btn-silver">Get Started</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="section">
+            <div class="container text-center">
+                <h2>Seamless Sourcing Journey</h2>
+                <p>Our 4-step framework ensures your success from inquiry to delivery.</p>
+                
+                <div class="timeline-grid">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <h3>Consultation & Specification</h3>
+                        <p>We define your ideal product. From technical specs to target pricing, we align our search with your business goals.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <h3>Strategic Sourcing</h3>
+                        <p>We don't just find suppliers; we benchmark them to find your competitive advantage in the Thai market.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <h3>Quality Assurance (QC)</h3>
+                        <p>Rigorous quality control at the source. We perform on-site audits to guarantee standards before shipping.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <h3>Logistics & Delivery</h3>
+                        <p>Smooth transit from factory to your doorstep. We manage documents and customs for a seamless experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="section bg-light">
+            <div class="container">
+                <div class="text-center" style="margin-bottom: 60px;">
+                    <h2>Core Expertise</h2>
+                    <p style="font-size:1.1rem; color: var(--primary-blue); font-weight:600;">Global Standards, Local Knowledge</p>
+                    <p style="max-width: 800px; margin: 20px auto;">
+                        At Tao Global Services, we bridge the gap between international expectations and local manufacturing realities.
+                    </p>
+                </div>
+                
+                <div class="grid-2">
+                    <div class="expertise-card">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <h3 class="text-center">1. Global Standards</h3>
+                        <ul class="feature-list">
+                            <li><strong>Rigorous QC:</strong> International inspection standards (AQL).</li>
+                            <li><strong>Professional Communication:</strong> Clear updates in English/Thai.</li>
+                            <li><strong>Ethical Sourcing:</strong> Prioritizing fair labor and safety.</li>
+                        </ul>
+                    </div>
+
+                    <div class="expertise-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h3 class="text-center">2. Local Knowledge</h3>
+                        <ul class="feature-list">
+                            <li><strong>Supplier Network:</strong> Vetted database of manufacturers.</li>
+                            <li><strong>On-Site Visits:</strong> Face-to-face negotiations.</li>
+                            <li><strong>Cultural Navigation:</strong> Bypassing local delays.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="grid-2">
+                    <div class="contact-info">
+                        <h2>Ready to start?</h2>
+                        <p style="color:var(--text-dark);">Contact us for a preliminary assessment.</p>
+                        <div style="margin-top: 40px;">
+                            <p><i class="fa-solid fa-location-dot" style="color:var(--primary-blue); margin-right:10px;"></i> Bangkok, Thailand</p>
+                            <p><i class="fa-brands fa-whatsapp" style="color:var(--primary-blue); margin-right:10px;"></i> +66 92 156 3555</p>
+                            <p><i class="fa-regular fa-envelope" style="color:var(--primary-blue); margin-right:10px;"></i> info@taoglobalservices.com</p>
+                        </div>
+                    </div>
+                    <div>
+                        <form action="https://formspree.io/f/mojqeqaz" method="POST">
+                            <h3 style="margin-bottom:20px;">Send a Message</h3>
+                            <input type="text" name="name" placeholder="Full Name" required>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <textarea name="message" rows="5" placeholder="Project Details..." required></textarea>
+                            <button type="submit" class="btn btn-silver" style="width:100%; border:1px solid #ccc;">Send Request</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Tao Global Services Co., Ltd. | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/66921563555" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp" style="color:white; font-size: 30px;"></i>
+    </a>
+
+    <script>
+        // Simple Header Shrink
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const toggle = document.getElementById('mobile-toggle');
+        const nav = document.getElementById('nav-menu');
+        
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
